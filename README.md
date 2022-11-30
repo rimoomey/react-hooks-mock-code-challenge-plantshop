@@ -36,7 +36,7 @@ As a user:
 1. When the app starts, I can see all plants. done
 2. I can add a new plant to the page by submitting the form. done
 3. I can mark a plant as "sold out". done
-4. I can search for plants by their name and see a filtered list of plants.
+4. I can search for plants by their name and see a filtered list of plants. done
 
 ### Endpoints for Core Deliverables
 

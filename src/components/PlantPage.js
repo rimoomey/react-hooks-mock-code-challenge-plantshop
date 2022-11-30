@@ -5,12 +5,13 @@ import Search from "./Search";
 
 function PlantPage() {
   const [isServerChange, setIsServerChange] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   return (
     <main>
       <NewPlantForm callback={setIsServerChange}/>
-      <Search />
-      <PlantList props={isServerChange}/>
+      <Search props={{ searchText, setSearchText }}/>
+      <PlantList props={{isServerChange, searchText}}/>
     </main>
   );
 }
