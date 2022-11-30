@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList() {
+function PlantList({ props }) {
   const [plants, setPlants] = useState([]);
   const api = "http://localhost:6001/plants";
 
@@ -13,7 +13,7 @@ function PlantList() {
 
   useEffect(() => {
     fetchPlants(api);
-  }, []);
+  }, [props]);
 
   const makePlantCards = () => {
     return plants.map((plant) => {
