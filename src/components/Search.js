@@ -2,7 +2,6 @@ import React from "react";
 
 function Search({ props }) {
   const {searchText, setSearchText} = props;
-  console.log(searchText);
   return (
     <div className="searchbar">
       <label htmlFor="search">Search Plants:</label>

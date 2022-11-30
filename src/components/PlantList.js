@@ -10,25 +10,27 @@ function PlantList({ props }) {
     fetch(link)
       .then((res) => res.json())
       .then((data) => {
-        if (searchText === "") {
-          setPlants(data);
-        } else {
-          const filtered = data.filter((plant) => {
-            return plant.name.toUpperCase().includes(searchText.toUpperCase());
-          });
-          setPlants(filtered);
-        }
+        setPlants(data);
       });
   };
 
   useEffect(() => {
     fetchPlants(api);
-  }, [isServerChange, searchText]);
+  }, [isServerChange]);
 
   const makePlantCards = () => {
-    return plants.map((plant) => {
-      return <PlantCard key={plant.id} props={plant} />;
-    });
+    if (searchText === "") {
+      return plants.map((plant) => {
+        return <PlantCard key={plant.id} props={plant} />;
+      });
+    } else {
+      const filtered = plants.filter((plant) => {
+        return plant.name.toUpperCase().includes(searchText.toUpperCase());
+      });
+      return filtered.map((plant) => {
+        return <PlantCard key={plant.id} props={plant} />;
+      });
+    }
   };
 
   return <ul className="cards">{makePlantCards()}</ul>;
