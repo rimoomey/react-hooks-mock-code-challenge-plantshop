@@ -12,9 +12,6 @@ function NewPlantForm({ callback }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  console.log("Object: ", formData);
-  console.log("Jsonified Object: ", JSON.stringify(formData));
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -28,7 +25,6 @@ function NewPlantForm({ callback }) {
       .then((res) => res.json())
       .then((newEntry) => {
         callback(true);
-        console.log("New entry", newEntry);
       });
   };
   return (
